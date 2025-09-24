@@ -20,10 +20,17 @@ Generates a synthetic dataset of enterprise activity logs. Each record includes:
 Contains the detection rules (R1–R8) that represent typical insider threat indicators:
 
 R1: Lateral Movement
+
 R2: Rapid Multi-System Access
+
 R3: Location/IP Anomaly
+
 R4: Role Change + Privileged Activity
+
 R5: Mass Email Attachments
+
 R6: Rare Command Usage
+
 R7: Repeated Failed Access Attempts
+
 R8: Off-Hour Production Access
