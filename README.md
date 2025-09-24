@@ -1,93 +1,68 @@
-Insider Threat Detection Framework
+Insider Threat Detection Framework :
 
 This repository contains the Python implementation for a policy- and rule-based insider threat detection framework, along with an optional hybrid extension that combines rule-based logic with the Isolation Forest (IF) anomaly detection algorithm.
 
 The code was developed as part of a master’s research project on evaluating policy-driven approaches to insider threat detection in enterprise IT environments.
 
-Repository Structure
-1. CodeforRuleImplementation.py
+Repository Structure :
+1. CodeforRuleImplementation.py :
 
-Implements a rule-based insider threat detection framework.
+* Implements a rule-based insider threat detection framework.
 
-Ingests a simulated enterprise dataset with fields:
+* Ingests a simulated enterprise dataset with fields:
 
-UserID, Role, Action, Timestamp, ResourceAccessed, IPAddress.
+  - UserID, Role, Action, Timestamp, ResourceAccessed, IPAddress.
 
-Applies eight predefined rules (R1–R8) to detect insider threat scenarios:
+* Applies eight predefined rules (R1–R8) to detect insider threat scenarios:
 
-Lateral Movement – Access outside department scope.
+1. Lateral Movement – Access outside department scope.
 
-Rapid Multi-System Access – >3 systems within 10 minutes.
+2. Rapid Multi-System Access – >3 systems within 10 minutes.
 
-IP Anomaly – New subnet at odd hours.
+3. IP Anomaly – New subnet at odd hours.
 
-Role Change + Privileged Activity – Misuse after promotion.
+4. Role Change + Privileged Activity – Misuse after promotion.
 
-Mass Email Attachments – >5 MB files to multiple external domains.
+5. Mass Email Attachments – >5 MB files to multiple external domains.
 
-Rare Command Usage – Admin-level commands by non-admins.
+6. Rare Command Usage – Admin-level commands by non-admins.
 
-Suspicious Command / Failed Attempts – Repeated failed access attempts.
+7. Suspicious Command / Failed Attempts – Repeated failed access attempts.
 
-Odd Hour Production Access – Unauthorized server access outside business hours.
+8. Odd Hour Production Access – Unauthorized server access outside business hours.
 
-Each log entry is evaluated against these rules, and alerts are generated where violations occur.
+* Each log entry is evaluated against these rules, and alerts are generated where violations occur.
 
-Outputs a flagged dataset showing normal vs. suspicious events.
+* Outputs a flagged dataset showing normal vs. suspicious events.
 
-2. IF+RuleImplementation.py
+2. IF+RuleImplementation.py :
 
-Extends the above rule-based framework with an Isolation Forest anomaly detection layer.
+* Extends the above rule-based framework with an Isolation Forest anomaly detection layer.
 
-Isolation Forest is used to detect unusual behavioural deviations that are not explicitly covered by rules.
+* Isolation Forest is used to detect unusual behavioural deviations that are not explicitly covered by rules.
 
-The script produces:
+* The script produces:
 
-Rule-based alerts (policy violations).
+  - Rule-based alerts (policy violations).
 
-IF-based anomaly scores (outliers).
+  - IF-based anomaly scores (outliers).
 
-Hybrid comparison to evaluate combined detection effectiveness.
+  - Hybrid comparison to evaluate combined detection effectiveness.
 
-Methodology Alignment
+Methodology Alignment :
 
-Rule-based framework → Demonstrates the interpretability and direct mapping of enterprise policies to detection rules.
+* Rule-based framework → Demonstrates the interpretability and direct mapping of enterprise policies to detection rules.
 
-Hybrid (IF + Rules) → Provides comparative evaluation of rule-based detection vs. anomaly-based detection, highlighting strengths and limitations.
+* Hybrid (IF + Rules) → Provides comparative evaluation of rule-based detection vs. anomaly-based detection, highlighting strengths and limitations.
 
-Requirements
+Output :
 
-Python 3.x
+* Processed dataset with alerts flagged.
 
-Libraries:
+* Evaluation metrics (Precision, Recall, F1-score).
 
-pip install pandas numpy scikit-learn matplotlib
+* Visualizations of detection performance (for hybrid model).
 
-Usage
+Contribution of the Project :
 
-Clone the repository:
-
-git clone https://github.com/your-username/insider-threat-detection.git
-cd insider-threat-detection
-
-
-Run rule-based detection only:
-
-python CodeforRuleImplementation.py
-
-
-Run rule + Isolation Forest hybrid detection:
-
-python IF+RuleImplementation.py
-
-Output
-
-Processed dataset with alerts flagged.
-
-Evaluation metrics (Precision, Recall, F1-score).
-
-Visualizations of detection performance (for hybrid model).
-
-Contribution of the Project
-
-This repository provides a reproducible demonstration of how policy-driven rules can detect insider threats in enterprise IT, and explores whether augmenting them with anomaly detection improves effectiveness. Access
+This repository provides a reproducible demonstration of how policy-driven rules can detect insider threats in enterprise IT, and explores whether augmenting them with anomaly detection improves effectiveness.
