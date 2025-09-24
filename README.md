@@ -7,14 +7,18 @@ This project provides a lightweight, interpretable, and reproducible framework f
 2. Applying rule-based detection logic derived from enterprise access policies.
 3. Evaluating detection performance using precision, recall, and F1-score.
 
-Repository Structure -
+Repository Structure :
+
 *simulate_logs.py
+
 Generates a synthetic dataset of enterprise activity logs. Each record includes:
 -User ID, Role, Action, Timestamp, Resource Accessed, IP Address
 -Simulates both normal behaviour and malicious scenarios (e.g., off-hour access, data exfiltration).
 
 *rules_engine.py
+
 Contains the detection rules (R1–R8) that represent typical insider threat indicators:
+
 R1: Lateral Movement
 R2: Rapid Multi-System Access
 R3: Location/IP Anomaly
